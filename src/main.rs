@@ -1,4 +1,4 @@
-use std::{env, process};
+use std::{env, fs, path::Path, process};
 
 const VERSION: &str = "v1.0.0";
 fn main() {
@@ -23,10 +23,17 @@ fn main() {
         }
 
         // working directory(from where the user called the gagbeg binary)
-        let current_dir = env::current_dir().unwrap();
-        let pwd = current_dir.to_str().unwrap();
-        println!("{pwd}");
+        let current_dir = env::current_dir().expect("Failed to retrieve the current directory!");
+        let _pwd = current_dir.to_str().unwrap();
 
+        // check if source file exits or not
+        if !Path::new(filename).exists() {
+            println!("File does not exist!");
+            process::exit(1);
+        }
 
+        // get source code from source file
+        let code = fs::read_to_string(filename).unwrap();
+        println!("{code}");
     }
 }
