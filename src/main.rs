@@ -21,5 +21,12 @@ fn main() {
             println!("Provided file is not a gagbeg-lang source file!");
             process::exit(1);    
         }
+
+        // working directory(from where the user called the gagbeg binary)
+        let current_dir = env::current_dir().unwrap();
+        let pwd = current_dir.to_str().unwrap();
+        println!("{pwd}");
+
+
     }
 }
