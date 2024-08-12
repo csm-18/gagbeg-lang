@@ -1,1 +1,11 @@
-first program #
+(ignore,This is a comment!)
+
+(ignore, eval function evaluates math expressions!)
+(eval,2+(5*5)-3)
+
+(ignore, date function prints date!)
+(date)
+
+
+(ignore, say function prints plain text!)
+   (say,"hello")   
